@@ -30,17 +30,17 @@ Conformément aux attentes du TP, ce projet intègre les technologies suivantes 
 Une barre de navigation fluide permettant de naviguer entre les sections : **À propos, Services, Projets et Contact**.
 
 ### 2. Assistant Virtuel (Chatbot JS)
-Développement d'un chatbot interactif permettant de répondre aux questions fréquentes sur mon parcours et mes compétences.
+Développement d'un chatbot interactif permettant de répondre aux questions fréquentes sur mon parcours et mes compétences, j'ai fait deux chatbot un ou les questions qui sont poser frequenment sont deja la et il dit juste la reponse et un autre bien plus complexe qui utilise des donner que je lui ai donner sur mon code pour repondre, le probleme il fait quelque erreur et ils bug quand on lui demande quelque chose autre que mon parcours proffesionnel il faudra regler ce probleme dans le futur.
 
-### 3. Outils Intégrés (Section API)
-- **Météo en direct** : Recherche par ville avec affichage dynamique des conditions et emojis.
-- **Convertisseur FDJ** : Outil spécifique utilisant les taux officiels de la Banque Centrale de Djibouti, avec mise à jour en direct du cours EUR/USD.
+### 3. Outils Intégrés (Section API)  (Realisation) 
+- **Météo en direct(section REALISATION)**  : Recherche par ville avec affichage dynamique des conditions et emojis. 
+- **Convertisseur FDJ(section SERVICES)** : Outil spécifique utilisant les taux officiels de la Banque Centrale de Djibouti, avec mise à jour en direct du cours EUR/USD car j'aurais pas que des djiboutien qui vont venir sur mon porfolio je me suis donc dit qu'il pouvais utilsier le convertisuer de devise pour que il ai un appercu de mes tarifs dans leur monaies (actuelement que le **EURO** et **DOLLARS** sont disponible j'y ajouterais d'autre comme le livre sterling , yuans etc.
 
 ### 4. Projets & Réalisations
 Présentation de mes travaux (Jeu Sonic en JS, App C++, etc.) avec un système de cartes extensibles pour une lecture claire.
 
 ### 5. Formulaire de Contact Professionnel
-Entièrement fonctionnel, il valide les données saisies par l'utilisateur avant l'envoi.
+Entièrement fonctionnel, il valide les données saisies par l'utilisateur avant l'envoi, aussi qand on touche sur l'email ca te renvoie diretement sur google gmail et tu peut directement m'envoyer un mail c'est 100% automatiser.
 
 ---
 
