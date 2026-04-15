@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Djama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <header class="navbar">
+        <a class="logo" href="index.html">MyPortfolio</a>
+        <nav>
+            <a href="about.html">ABOUT ME</a>
+            <a href="services.html" class="active">SERVICES</a>
+            <a href="realisations.html">PROJECTS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <section class="card" id="service">
+        <div class="label-tag">Services Offered</div>
+
+        <div class="item expandable" onclick="toggleCard(this)">
+            <div class="item-header">
+                <div class="icon-circle">🌐</div>
+                <div class="text-content">
+                    <h3>Website Creation</h3>
+                    <p>Design of modern and manageable websites. <br>
+                    <small style="color:var(--accent-orange)">➔ Click to learn more</small></p>
+                </div>
+            </div>
+            <div class="details-content">
+                <hr style="border: 0.5px solid #333; margin: 15px 0;">
+                <p>I create SEO-optimized websites, fully responsive on mobile devices.</p>
+                <ul style="color:var(--text-gray); line-height:2;">
+                    <li>Modern and custom design</li>
+                    <li>Compatible with all devices (responsive)</li>
+                    <li>SEO optimized for Google ranking</li>
+                    <li>Fast loading and optimized performance</li>
+                </ul>
+                <div class="gallery">
+                    <img src="site1.webp" alt="Site 1">
+                    <img src="site2.webp" alt="Site 2">
+                </div>
+            </div>
+        </div>
+
+        <div class="item expandable" onclick="toggleCard(this)">
+            <div class="item-header">
+                <div class="icon-circle">⚙️</div>
+                <div class="text-content">
+                    <h3>Task Automation</h3>
+                    <p>Development of custom scripts for your processes. <br>
+                    <small style="color:var(--accent-orange)">➔ Click to learn more</small></p>
+                </div>
+            </div>
+            <div class="details-content">
+                <hr style="border: 0.5px solid #333; margin: 15px 0;">
+                <p>Python and Node.js scripts to automate data collection or repetitive tasks.</p>
+                <ul style="color:var(--text-gray); line-height:2;">
+                    <li>Automated data collection and processing</li>
+                    <li>Automatic report generation</li>
+                    <li>Custom bots and scripts</li>
+                    <li>Third-party API integration</li>
+                </ul>
+                <div class="gallery">
+                    <img src="OIP.webp" alt="Auto 1">
+                    <img src="OIP 2.webp" alt="Auto 2">
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PRICING CTA ===== -->
+        <div style="margin-top:30px; padding-top:25px; border-top:1px solid #333;">
+
+            <!-- Quick pricing overview -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:24px;">
+                <div style="background:var(--input-bg); border-radius:10px; padding:16px 14px; text-align:center; border:1px solid #2a2a2a; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(230,126,34,0.35)'" onmouseout="this.style.borderColor='#2a2a2a'">
+                    <div style="font-size:1.4rem; margin-bottom:6px;">🌱</div>
+                    <div style="font-size:0.68rem; font-weight:800; letter-spacing:1.5px; color:var(--accent-orange); text-transform:uppercase; margin-bottom:4px;">Starter</div>
+                    <div style="font-size:1.3rem; font-weight:800; color:var(--text-white);">10 000</div>
+                    <div style="font-size:0.72rem; color:var(--text-gray);">FDJ</div>
+                </div>
+                <div style="background:linear-gradient(160deg,#1c1a17,#1f1f1f); border-radius:10px; padding:16px 14px; text-align:center; border:1px solid rgba(230,126,34,0.45); box-shadow:0 4px 20px rgba(230,126,34,0.1);">
+                    <div style="font-size:1.4rem; margin-bottom:6px;">🚀</div>
+                    <div style="font-size:0.68rem; font-weight:800; letter-spacing:1.5px; color:var(--accent-orange); text-transform:uppercase; margin-bottom:4px;">Pro ★</div>
+                    <div style="font-size:1.3rem; font-weight:800; color:var(--accent-orange);">18 000</div>
+                    <div style="font-size:0.72rem; color:var(--text-gray);">FDJ</div>
+                </div>
+                <div style="background:var(--input-bg); border-radius:10px; padding:16px 14px; text-align:center; border:1px solid #2a2a2a; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(230,126,34,0.35)'" onmouseout="this.style.borderColor='#2a2a2a'">
+                    <div style="font-size:1.4rem; margin-bottom:6px;">💎</div>
+                    <div style="font-size:0.68rem; font-weight:800; letter-spacing:1.5px; color:var(--accent-orange); text-transform:uppercase; margin-bottom:4px;">Premium</div>
+                    <div style="font-size:1.3rem; font-weight:800; color:var(--text-white);">35 000</div>
+                    <div style="font-size:0.72rem; color:var(--text-gray);">FDJ</div>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                <a href="tarifs.html"
+                   style="background:var(--accent-orange); color:#000; padding:13px 32px; border-radius:8px; text-decoration:none; font-weight:800; font-size:0.88rem; letter-spacing:1.5px; text-transform:uppercase; transition:opacity 0.3s, transform 0.2s; display:inline-flex; align-items:center; gap:8px;"
+                   onmouseover="this.style.opacity='0.85'; this.style.transform='translateY(-2px)'"
+                   onmouseout="this.style.opacity='1'; this.style.transform='translateY(0)'">
+                    💰 VIEW ALL PRICING
+                </a>
+                <a href="contact.html"
+                   style="background:transparent; color:var(--accent-orange); padding:13px 32px; border-radius:8px; text-decoration:none; font-weight:800; font-size:0.88rem; letter-spacing:1.5px; text-transform:uppercase; border:2px solid var(--accent-orange); transition:background 0.3s, transform 0.2s;"
+                   onmouseover="this.style.background='rgba(230,126,34,0.1)'; this.style.transform='translateY(-2px)'"
+                   onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'">
+                    REQUEST A QUOTE
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ===== CLASSIC CHATBOT ===== -->
+<div id="chat-bubble" title="Quick questions">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <div id="chat-badge">?</div>
+</div>
+<div id="chatbox">
+    <div id="chat-header">
+        <div id="chat-header-tag">Assistant</div>
+        <div id="chat-header-info"><p>Djama's Portfolio</p></div>
+        <div id="chat-status"></div>
+        <div id="chat-close">&#x2715;</div>
+    </div>
+    <div id="messages">
+        <div class="msg bot">Hello! I'm <strong>Djama</strong>'s assistant. Select a question below.</div>
+    </div>
+    <div id="questions-panel">
+        <div id="questions-label">Choose a question</div>
+    </div>
+    <div id="chat-footer">MyPortfolio &nbsp;|&nbsp; <span>Djama</span></div>
+</div>
+
+<!-- ===== AI CHATBOT ===== -->
+<div id="ai-bubble" title="Ask the AI a question">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span class="ai-icon-label">AI</span>
+    <div id="ai-badge">&#10022;</div>
+</div>
+<div id="ai-chatbox">
+    <div id="ai-header">
+        <div id="ai-header-tag">DJAMA AI</div>
+        <div id="ai-header-info">
+            <p>Djama's AI Assistant</p>
+            <small>Ask any question</small>
+        </div>
+        <div id="ai-status"></div>
+        <div id="ai-close">&#x2715;</div>
+    </div>
+    <div id="ai-messages"></div>
+    <div id="ai-input-area">
+        <input type="text" id="ai-input" placeholder="Your question..." maxlength="300" />
+        <button id="ai-send-btn" title="Send">
+            <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+    </div>
+    <div id="ai-footer">Powered by &nbsp;<span>DJAMA AI</span></div>
+</div>
+
+<script src="chatbot.js"></script>
+</body>
+</html>

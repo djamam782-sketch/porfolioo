@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Djama</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        /* ---- Contact form ---- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-orange);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            background: var(--input-bg);
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px 15px;
+            color: var(--text-white);
+            font-size: 0.9rem;
+            font-family: 'Segoe UI', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(230,126,34,0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-group select option {
+            background: var(--card-bg);
+        }
+
+        .submit-btn {
+            background: var(--accent-orange);
+            color: #000;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.2s;
+            align-self: flex-start;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .submit-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Notification */
+        #form-notification {
+            display: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        #form-notification.success {
+            background: rgba(46,204,113,0.15);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            display: block;
+        }
+        #form-notification.error {
+            background: rgba(231,76,60,0.15);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            display: block;
+        }
+
+        /* Contact info */
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .contact-info-card {
+            background: var(--input-bg);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-left: 3px solid var(--accent-orange);
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-3px);
+            background: rgba(230,126,34,0.08);
+        }
+
+        .contact-info-card .ci-icon { font-size: 1.8rem; flex-shrink: 0; }
+        .contact-info-card .ci-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-orange); font-weight: 700; margin-bottom: 3px; }
+        .contact-info-card .ci-value { font-size: 0.88rem; color: var(--text-white); }
+
+        /* Spinner in button */
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #00000040;
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header class="navbar">
+        <a class="logo" href="index.html">MyPortfolio</a>
+        <nav>
+            <a href="about.html">ABOUT ME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="realisations.html">PROJECTS</a>
+            <a href="contact.html" class="active">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- Contact info -->
+    <section class="card">
+        <div class="label-tag">My Contact Details</div>
+
+        <div class="contact-info-grid">
+            <a href="tel:+25377222042" class="contact-info-card">
+                <div class="ci-icon">📞</div>
+                <div>
+                    <div class="ci-label">Phone</div>
+                    <div class="ci-value">+253 77 22 20 42</div>
+                </div>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&to=djamam782@gmail.com" target="_blank" class="contact-info-card">
+                <div class="ci-icon">📧</div>
+                <div>
+                    <div class="ci-label">Email</div>
+                    <div class="ci-value">djamam782@gmail.com</div>
+                </div>
+            </a>
+            <div class="contact-info-card" style="cursor:default;">
+                <div class="ci-icon">🕐</div>
+                <div>
+                    <div class="ci-label">Availability</div>
+                    <div class="ci-value">Sun → Thu · Reply &lt; 24h</div>
+                </div>
+            </div>
+            <div class="contact-info-card" style="cursor:default;">
+                <div class="ci-icon">📍</div>
+                <div>
+                    <div class="ci-label">Location</div>
+                    <div class="ci-value">Djibouti</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact form -->
+    <section class="card">
+        <div class="label-tag">Send a Message</div>
+        <p style="color:var(--text-gray); margin-top:10px; font-size:0.9rem;">
+            Fill in the form below and I will get back to you as soon as possible.
+        </p>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="from_name">Full Name *</label>
+                    <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="from_email">Email Address *</label>
+                    <input type="email" id="from_email" name="from_email" placeholder="you@example.com" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+253 XX XX XX XX">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Choose a subject</option>
+                        <option value="Website Creation">Website Creation</option>
+                        <option value="Task Automation">Task Automation</option>
+                        <option value="Freelance Project">Freelance Project</option>
+                        <option value="Internship Proposal">Internship Proposal</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" placeholder="Describe your project or request..." required></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Send Message ✉️
+                </button>
+            </div>
+
+            <div id="form-notification"></div>
+        </form>
+    </section>
+
+</div>
+
+<!-- ===== CLASSIC CHATBOT ===== -->
+<div id="chat-bubble" title="Quick questions">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <div id="chat-badge">?</div>
+</div>
+<div id="chatbox">
+    <div id="chat-header">
+        <div id="chat-header-tag">Assistant</div>
+        <div id="chat-header-info"><p>Djama's Portfolio</p></div>
+        <div id="chat-status"></div>
+        <div id="chat-close">&#x2715;</div>
+    </div>
+    <div id="messages">
+        <div class="msg bot">Hello! I'm <strong>Djama</strong>'s assistant. Select a question below.</div>
+    </div>
+    <div id="questions-panel">
+        <div id="questions-label">Choose a question</div>
+    </div>
+    <div id="chat-footer">MyPortfolio &nbsp;|&nbsp; <span>Djama</span></div>
+</div>
+
+<!-- ===== AI CHATBOT ===== -->
+<div id="ai-bubble" title="Ask the AI a question">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span class="ai-icon-label">AI</span>
+    <div id="ai-badge">&#10022;</div>
+</div>
+<div id="ai-chatbox">
+    <div id="ai-header">
+        <div id="ai-header-tag">AI · Claude</div>
+        <div id="ai-header-info">
+            <p>Djama's AI Assistant</p>
+            <small>Ask any question</small>
+        </div>
+        <div id="ai-status"></div>
+        <div id="ai-close">&#x2715;</div>
+    </div>
+    <div id="ai-messages"></div>
+    <div id="ai-input-area">
+        <input type="text" id="ai-input" placeholder="Your question..." maxlength="300" />
+        <button id="ai-send-btn" title="Send">
+            <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+    </div>
+    <div id="ai-footer">Powered by &nbsp;<span>Claude AI</span></div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="chatbot.js"></script>
+<script>
+    const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    const form         = document.getElementById('contactForm');
+    const submitBtn    = document.getElementById('submitBtn');
+    const notification = document.getElementById('form-notification');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name    = document.getElementById('from_name').value.trim();
+        const email   = document.getElementById('from_email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !subject || !message) {
+            showNotification('Please fill in all required fields.', 'error');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner"></span>Sending...';
+        notification.style.display = 'none';
+        notification.className = '';
+
+        const templateParams = {
+            from_name:  name,
+            from_email: email,
+            phone:      document.getElementById('phone').value.trim() || 'Not provided',
+            subject:    subject,
+            message:    message,
+            to_email:   'djamam782@gmail.com'
+        };
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(function() {
+                showNotification('✅ Message sent successfully! I will reply within 24 hours.', 'success');
+                form.reset();
+            })
+            .catch(function(error) {
+                console.error('EmailJS error:', error);
+                showNotification('❌ Error sending message. Check your EmailJS keys or contact me directly at djamam782@gmail.com', 'error');
+            })
+            .finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message ✉️';
+            });
+    });
+
+    function showNotification(msg, type) {
+        notification.textContent = msg;
+        notification.className = type;
+    }
+</script>
+</body>
+</html>
